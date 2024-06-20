@@ -148,6 +148,18 @@ class Game:
         pygame.display.flip()
 
     def DisplayText(self, str):
+        RED = (255, 0, 0, 75) 
+        YELLOW = (255, 255, 0, 75) 
+
+        red_surface = pygame.Surface((screen_width // 2, screen_height), pygame.SRCALPHA)
+        pygame.draw.rect(red_surface, RED, red_surface.get_rect())
+
+        yellow_surface = pygame.Surface((screen_width // 2, screen_height), pygame.SRCALPHA)
+        pygame.draw.rect(yellow_surface, YELLOW, yellow_surface.get_rect())
+        
+        screen.blit(red_surface, (0, 0))
+        screen.blit(yellow_surface, (screen_width // 2, 0))
+        
         font = pygame.font.Font('Connect4/font/font.otf', 50)
         gameover_surface = font.render("Play first                    Play Second", False, 'Black')
         gameover_rect = gameover_surface.get_rect(midbottom=(screen_width // 2, screen_height // 2 - 35))
